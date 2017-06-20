@@ -1,28 +1,19 @@
 # S3imageoptim
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/s3imageoptim`. To experiment with that code, run `bin/console` for an interactive prompt.
+S3imageoptim is a command line utility to compress images in Amazon S3.
 
-TODO: Delete this and the text above, and describe your gem
+## Requirements
+
+This tools requires that you have `s3cmd` installed and working, as well as read and write permissions in the target S3 bucket.
+You don't need to install compression tools in your machine because we will be using prebuilt binaries 🕺.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 's3imageoptim'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install s3imageoptim
+`gem install s3imageoptim`
 
 ## Usage
 
-TODO: Write usage instructions here
+`s3imageoptim bucket-or-path-in-s3cmd-format`
 
 ## Development
 
@@ -32,10 +23,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/s3imageoptim. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/simplelogica/s3imageoptim. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
