@@ -5,6 +5,8 @@ require "open3"
 
 class S3imageoptim::Command < Thor::Group
   argument :bucket, desc: "S3 Bucket to compress"
+  class_option :acl, enum: %w(public private), default: "public"
+
   desc "Get all files from BUCKET and put them back compressed"
   def get
     s3cmd("get --exclude '*' --rinclude '\.(#{extensions("|")})$' --recursive #{bucket} #{tmpdir}") do |error|
@@ -17,11 +19,18 @@ class S3imageoptim::Command < Thor::Group
   end
 
   def compress
-    ImageOptim.new(pngout: false, svgo: false).optimize_images!(local_files)
+    ImageOptim.new(
+      svgo: false,
+      pngout: false,
+      jpegoptim: {
+        allow_lossy: true,
+        max_quality: 80
+      }
+    ).optimize_images!(local_files)
   end
 
   def put
-    s3cmd("sync #{tmpdir}/ #{bucket}") do |error|
+    s3cmd("sync --acl-#{options[:acl]} #{tmpdir}/ #{bucket}") do |error|
       abort("An error ocurred while putting the files: #{error}")
     end
   end
