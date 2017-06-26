@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 's3imageoptim/cli'
+S3imageoptim::CLI.start(ARGV)
