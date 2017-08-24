@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'image_optim', '~> 0.24.3'
+  spec.add_dependency 'image_optim', '~> 0.25.0'
   spec.add_dependency 'image_optim_pack', '~> 0.5.0.20170609'
   spec.add_dependency 'thor'
 
